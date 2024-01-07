@@ -1,4 +1,5 @@
-package com.okushyn.rest.basic.auth;
+package com.okushyn.rest.webservices.basic.auth;
+
 
 public class AuthenticationBean {
     private String message;
