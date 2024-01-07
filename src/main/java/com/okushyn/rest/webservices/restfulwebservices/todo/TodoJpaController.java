@@ -1,19 +1,18 @@
 package com.okushyn.rest.webservices.restfulwebservices.todo;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import java.net.URI;
 import java.util.List;
 
+@Slf4j
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class TodoJpaController {
-    @Autowired
-    private TodoHardcodedService todoService;
 
     @Autowired
     private TodoJpaRepository todoJpaRepository;
@@ -28,7 +27,6 @@ public class TodoJpaController {
     public Todo getTodo(@PathVariable String username, @PathVariable long id) {
         return todoJpaRepository.findById(id).get();
     }
-
 
     @DeleteMapping("/jpa/users/{username}/todos/{id}")
     public ResponseEntity<Void> deleteTodo(@PathVariable String username,
